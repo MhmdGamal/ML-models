@@ -11,7 +11,7 @@ X = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
 
 # Splitting the dataset into the Training set and Test set
-"""from sklearn.cross_validation import train_test_split
+"""from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)"""
 
 # Feature Scaling
@@ -21,7 +21,7 @@ sc_y = StandardScaler()
 X = sc_X.fit_transform(X)
 y = sc_y.fit_transform(y)
 
-# Fitting SVR to the dataset
+# Fitting SVR to the dataset (Gaussian Kernel)
 from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf')
 regressor.fit(X, y)

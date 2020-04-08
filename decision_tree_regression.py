@@ -11,7 +11,7 @@ X = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, 2].values
 
 # Splitting the dataset into the Training set and Test set
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 # Feature Scaling
@@ -23,7 +23,7 @@ X_test = sc_X.transform(X_test)
 
 # Fitting Decision Tree Regression to the dataset
 from sklearn.tree import DecisionTreeRegressor
-regressor = DecisionTreeRegressor()
+regressor = DecisionTreeRegressor(criterion='entropy',max_depth=4)
 regressor.fit(X_train, y_train)
 
 # Predicting a new result
